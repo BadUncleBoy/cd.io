@@ -897,6 +897,8 @@
       font-size: 16px;
       font-weight: 400;
     }
+
+    
   </style>
 </head>
 
@@ -932,7 +934,7 @@
       </div>
     </div>
   </div>
-  <div class="application--wrap">
+  <div class="application--wrap" id="application--wrap">
     <div data-v-19cace2a="" right="" top="">
       <div data-v-6dc4700a="" data-v-19cace2a=""><span data-v-6dc4700a=""></span>
         <!---->
@@ -947,8 +949,10 @@
         <div data-v-e187dc34="" class="layout justify-center">
           <div data-v-e187dc34="" class="layout column justify-center">
             <div data-v-e187dc34="" class="flex xs12">
-              <div data-v-e187dc34="" style="text-align: justify;"><span data-v-e187dc34=""
-                  style="font-weight: bold; color: green; font-size: 24px; width: 100%; display: inline-block;">研究生用户，入校登记成功！</span>
+              <div data-v-e187dc34="" style="text-align: justify;" >
+                <span id = "in_out_choice"  data-v-e187dc34=""style="font-weight: bold; color: green; font-size: 24px; width: 100%; display: inline-block;">
+                  研究生用户，入校登记成功！
+                </span>
               </div>
             </div>
           </div>
@@ -975,7 +979,7 @@
             <div data-v-e187dc34="" class="v-list__tile__content">
               <div data-v-e187dc34="" class="v-list__tile__title">
                 <div data-v-e187dc34="" class="layout justify-end">
-                  <h2 data-v-e187dc34="">张勇</h2>
+                  <h2 id="set_user_name" data-v-e187dc34="">张勇</h2>
                 </div>
               </div>
             </div>
@@ -1036,7 +1040,7 @@
 
           </div>
         </div>
-        <div class="info" data-v-78b386c8="">
+        <div id="show_qrcode" class="info" data-v-78b386c8="">
           <span data-v-78b386c8="" id="2_code"
             style="background-color:#02c3a4;color:white;padding-left:10px;padding-right:10px;margin:0 auto;display:block;border-radius:3px">
             <a href="https://szl0834.github.io/PingAnChengDian/%E4%B8%AA%E4%BA%BA%E4%BA%8C%E7%BB%B4%E7%A0%81.html"
@@ -1051,6 +1055,19 @@
     <div data-v-e187dc34="" style="text-align: center; padding: 5px; margin-top: 20px;"><img data-v-e187dc34=""
         src="./resources/bwc_wechat.d6141ed0.png" class="logo-bG9naW5JZD0yMDE5MjIwODA5MzQ"
         style="width: 50px; height: auto;"></div>
+  </div>
+  <div id="start_choice" style="text-align: center;">
+    <div>
+      <input type="text" id="user_name" required placeholder="输入学号"
+        style="height: 40px;width: 100%; background:#595959">
+    </div>
+
+    <div style="background: #8bffff; height: 40px; width: 100%; font-size:16px;">类别:
+      <label><input type="radio" name="page_choice" value="goin">进校</label>
+      <label><input type="radio" name="page_choice" value="goout">出校</label>
+    </div>
+    <button id="submit_choice" style="height: 40px; width: 100%;background: #800000; font-size: 16px;font-weight: 700;"
+      onclick="gen_choice()">生成</button>
   </div>
   </div>
   </div>
@@ -1069,6 +1086,38 @@
     var time2 = document.getElementById("time2");
     time1.innerHTML = myYear + "-" + myMonth + "-" + myDay + " " + myHours + ":" + myMinutes + ":" + mySeconds;
     time2.innerHTML = myYear + "-" + myMonth + "-" + myDay + " " + myHours + ":" + myMinutes + ":" + mySeconds;
+  }
+  var main_content = document.getElementById("application--wrap");
+  main_content.style.display = 'none';
+  function gen_choice() {
+    var user_name = document.getElementById("user_name").value;
+    var start_choice = document.getElementById("start_choice");
+    var main_content = document.getElementById("application--wrap");
+    main_content.style.display = 'none';
+    var set_user_name = document.getElementById("set_user_name");
+    set_user_name.innerHTML = user_name;
+    var page_choice = document.getElementsByName("page_choice");
+
+    if (page_choice[0].checked == true) {
+      main_content.style.display = 'block';
+      start_choice.style.display = 'none';
+
+      var in_out_content = document.getElementById("in_out_choice");
+      in_out_content.innerHTML = "研究生用户，进校登记成功";
+      var show_qrcode = document.getElementById("show_qrcode");
+      show_qrcode.style.display = 'block';
+      show_qrcode.style.marginLeft = 'auto';
+      show_qrcode.style.marginRight = 'auto';
+      show_qrcode.style.width = 'fit-content';
+    }
+    if (page_choice[1].checked == true) {
+      main_content.style.display = 'block';
+      start_choice.style.display = 'none';
+      var in_out_content = document.getElementById("in_out_choice");
+      in_out_content.innerHTML = "研究生用户，出校登记成功";
+      var show_qrcode = document.getElementById("show_qrcode");
+      show_qrcode.style.display = 'none';
+    }
   }
   function doMove() {
     var time1 = document.getElementById("time1");
