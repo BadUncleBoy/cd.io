@@ -1067,9 +1067,9 @@
       <label><input type="radio" name="page_choice" value="goout">出校</label>
     </div>
     <div style="background: rgb(101, 75, 248); height: 40px; width: 100%; font-size:16px;">用户类别:
-      <label><input type="radio" name="user_choice" value="goin">本科</label>
-      <label><input type="radio" name="user_choice" value="goout">硕士</label>
-      <label><input type="radio" name="user_choice" value="goout">博士</label>
+      <label><input type="radio" name="user_choice" value="bk">本科</label>
+      <label><input type="radio" name="user_choice" value="ss">硕士</label>
+      <label><input type="radio" name="user_choice" value="bs">博士</label>
     </div>
     <button id="submit_choice" style="height: 40px; width: 100%;background: #800000; font-size: 16px;font-weight: 700;"
       onclick="gen_choice()">生成</button>
@@ -1107,9 +1107,9 @@
     var user_kind = null;
     var title_user = null;
     var show_qrcode = document.getElementById("show_qrcode");
+    
     if (page_choice[0].checked == true) {
       page_kind = "进校";
-      
       show_qrcode.style.display = 'block';
       show_qrcode.style.marginLeft = 'auto';
       show_qrcode.style.marginRight = 'auto';
@@ -1122,20 +1122,24 @@
       user_kind = "本科生";
       title_user = "本科生";
     }
-    if (user_choice[0].checked == true) {
+    if (user_choice[1].checked == true) {
       user_kind = "研究生（硕士）";
       title_user = "研究生";
     }
-    if (user_choice[0].checked == true) {
+    if (user_choice[2].checked == true) {
       user_kind = "研究生（博士）";
       title_user = "研究生";
     }
     var in_out_content = document.getElementById("in_out_choice");
-    
+    if (user_kind != null)
+    {
+        alert(user_kind);
+    }
     var set_user_kind = document.getElementById("set_user_kind");
     in_out_content.innerHTML = title_user + "用户，"+ page_kind + "登记成功";
     set_user_kind.innerHTML = user_kind;
-    if (user_kind != none && page_kind != none)
+    
+    if (user_kind != null && page_kind != null)
     {
       start_content.style.display = 'none';
       main_content.style.display = 'block';
