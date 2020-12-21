@@ -1058,7 +1058,7 @@
   </div>
   <div id="start_content" style="text-align: center;">
     <div style="width: 100%; text-align: center; background:#339999">
-      <input type="text" id="user_name" required placeholder="输入姓名">
+      <input style="text-align: center;" type="text" id="user_name" required placeholder="输入姓名">
     </div>
 
     <div style="background: #99CCFF; width: 100%; font-size:16px;">类别:
@@ -1116,6 +1116,10 @@
     }
     if (page_choice[1].checked == true) {
       page_kind = "出校";
+      show_qrcode.style.display = 'block';
+      show_qrcode.style.marginLeft = 'auto';
+      show_qrcode.style.marginRight = 'auto';
+      show_qrcode.style.width = 'fit-content';
     }
     if (user_choice[0].checked == true) {
       user_kind = "本科生";
@@ -1131,7 +1135,7 @@
     }
     var in_out_content = document.getElementById("in_out_choice");
     var set_user_kind = document.getElementById("set_user_kind");
-    in_out_content.innerHTML = title_user + "用户，"+ page_kind + "登记成功";
+    in_out_content.innerHTML = title_user + "用户，"+ page_kind + "登记成功!";
     set_user_kind.innerHTML = user_kind;
     
     if (user_kind != null && page_kind != null)
