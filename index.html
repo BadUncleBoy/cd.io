@@ -979,7 +979,7 @@
             <div data-v-e187dc34="" class="v-list__tile__content">
               <div data-v-e187dc34="" class="v-list__tile__title">
                 <div data-v-e187dc34="" class="layout justify-end">
-                  <h2 id="set_user_name" data-v-e187dc34="">张勇</h2>
+                  <h2 id="set_user_name" data-v-e187dc34="">XX</h2>
                 </div>
               </div>
             </div>
@@ -1003,7 +1003,7 @@
             <div data-v-e187dc34="" class="v-list__tile__content">
               <div data-v-e187dc34="" class="v-list__tile__title">
                 <div data-v-e187dc34="" class="layout justify-end">
-                  <h2 data-v-e187dc34="">研究生（硕士）</h2>
+                  <h2 id="set_user_kind" data-v-e187dc34="">XX</h2>
                 </div>
               </div>
             </div>
@@ -1056,7 +1056,7 @@
         src="./resources/bwc_wechat.d6141ed0.png" class="logo-bG9naW5JZD0yMDE5MjIwODA5MzQ"
         style="width: 50px; height: auto;"></div>
   </div>
-  <div id="start_choice" style="text-align: center;">
+  <div id="start_content" style="text-align: center;">
     <div>
       <input type="text" id="user_name" required placeholder="输入姓名"
         style="height: 40px;width: 100%; background:#595959">
@@ -1065,6 +1065,11 @@
     <div style="background: #8bffff; height: 40px; width: 100%; font-size:16px;">类别:
       <label><input type="radio" name="page_choice" value="goin">进校</label>
       <label><input type="radio" name="page_choice" value="goout">出校</label>
+    </div>
+    <div style="background: rgb(101, 75, 248); height: 40px; width: 100%; font-size:16px;">用户类别:
+      <label><input type="radio" name="user_choice" value="goin">本科</label>
+      <label><input type="radio" name="user_choice" value="goout">硕士</label>
+      <label><input type="radio" name="user_choice" value="goout">博士</label>
     </div>
     <button id="submit_choice" style="height: 40px; width: 100%;background: #800000; font-size: 16px;font-weight: 700;"
       onclick="gen_choice()">生成</button>
@@ -1090,33 +1095,50 @@
   var main_content = document.getElementById("application--wrap");
   main_content.style.display = 'none';
   function gen_choice() {
-    var user_name = document.getElementById("user_name").value;
-    var start_choice = document.getElementById("start_choice");
+    
+    var start_content = document.getElementById("start_content");
     var main_content = document.getElementById("application--wrap");
-    main_content.style.display = 'none';
+    var user_name = document.getElementById("user_name").value;
     var set_user_name = document.getElementById("set_user_name");
     set_user_name.innerHTML = user_name;
     var page_choice = document.getElementsByName("page_choice");
-
+    var user_choice = document.getElementsByName("user_choice");
+    var page_kind = null;
+    var user_kind = null;
+    var title_user = null;
+    var show_qrcode = document.getElementById("show_qrcode");
     if (page_choice[0].checked == true) {
-      main_content.style.display = 'block';
-      start_choice.style.display = 'none';
-
-      var in_out_content = document.getElementById("in_out_choice");
-      in_out_content.innerHTML = "研究生用户，进校登记成功";
-      var show_qrcode = document.getElementById("show_qrcode");
+      page_kind = "进校";
+      
       show_qrcode.style.display = 'block';
       show_qrcode.style.marginLeft = 'auto';
       show_qrcode.style.marginRight = 'auto';
       show_qrcode.style.width = 'fit-content';
     }
     if (page_choice[1].checked == true) {
+      page_kind = "出校";
+    }
+    if (user_choice[0].checked == true) {
+      user_kind = "本科生";
+      title_user = "本科生";
+    }
+    if (user_choice[0].checked == true) {
+      user_kind = "研究生（硕士）";
+      title_user = "研究生";
+    }
+    if (user_choice[0].checked == true) {
+      user_kind = "研究生（博士）";
+      title_user = "研究生";
+    }
+    var in_out_content = document.getElementById("in_out_choice");
+    
+    var set_user_kind = document.getElementById("set_user_kind");
+    in_out_content.innerHTML = title_user + "用户，"+ page_kind + "登记成功";
+    set_user_kind.innerHTML = user_kind;
+    if (user_kind != none && page_kind != none)
+    {
+      start_content.style.display = 'none';
       main_content.style.display = 'block';
-      start_choice.style.display = 'none';
-      var in_out_content = document.getElementById("in_out_choice");
-      in_out_content.innerHTML = "研究生用户，出校登记成功";
-      var show_qrcode = document.getElementById("show_qrcode");
-      show_qrcode.style.display = 'none';
     }
   }
   function doMove() {
