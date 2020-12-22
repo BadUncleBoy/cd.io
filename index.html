@@ -932,20 +932,20 @@
       border-radius: 50% 50% 50% 50%;
       position: absolute;
       border-top: 5px solid;
-      border-bottom: 5px solid ;
-      border-left: 5px solid ;
-      border-right: 5px solid ;
+      border-bottom: 5px solid;
+      border-left: 5px solid;
+      border-right: 5px solid;
       animation: animate 1s infinite;
     }
 
 
     #object_two {
-      border-color: green;
+      border-color: rgb(1, 214, 180);
       border-bottom-color: white;
       left: 65px;
       top: 65px;
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
     }
 
     @keyframes animate {
@@ -1071,23 +1071,36 @@
     </div>
 
   </div>
-  <div id="start_content" style="text-align: center;">
-    <div style="width: 100%; text-align: center; background:#339999">
+  <div id="start_content" style="text-align: center;font-size:30px; margin-top: 10%;">
+    <div style="background:#339999; height: 50px;">
       <input style="text-align: center;" type="text" id="user_name" required placeholder="输入姓名">
     </div>
 
-    <div style="background: #99CCFF; width: 100%; font-size:16px;">类别:
-      <label><input type="radio" name="page_choice" value="goin">进校</label>
-      <label><input type="radio" name="page_choice" value="goout">出校</label>
+    <div style="background: #99CCFF; ">
+      <div style="height: 50px;">
+        <text style="color: #9f0010; font-weight: 700;">页面类别</text>
+          <label><input type="radio" name="page_choice" value="goin">进校</label>
+          <label><input type="radio" name="page_choice" value="goout">出校</label>
+      </div>
     </div>
-    <div style="background: #339999; width: 100%; font-size:16px;">用户类别:
-      <label><input type="radio" name="user_choice" value="bk">本科</label>
-      <label><input type="radio" name="user_choice" value="ss">硕士</label>
-      <label><input type="radio" name="user_choice" value="bs">博士</label>
+    <div style="background: #339999; height: 50px;">
+      <div>
+        <text style="color: #9f0010; font-weight: 700;">用户类别:</text>
+        <label><input type="radio" name="user_choice" value="bk">本科</label>
+        <label><input type="radio" name="user_choice" value="ss">硕士</label>
+        <label><input type="radio" name="user_choice" value="bs">博士</label>
+      </div>
+
     </div>
-    <button id="submit_choice"
-      style="width: 100%; background: #99CCFF; font-size: 16px;font-weight: 700; color:#FFFFFF;"
-      onclick="gen_choice()">生成</button>
+    <div style="background: #99CCFF;">
+      <button id="submit_choice" style="font-weight: 700; color:#FFFFFF;"
+        onclick="gen_choice()">生成</button>
+    </div>
+    <div >
+      <p1>点击生成即可跳转到所需页面！纯静态页面不会记录任何数据。</p1>
+      <p1>新增加载效果。点击生成后会触发加载框，默认5秒后跳转到所需要的页面</p1>
+    </div>
+
   </div>
   <div id="loading" style="display:none;">
     <div id="loading-center">
