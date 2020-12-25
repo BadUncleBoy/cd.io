@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://smaco2.uestc.edu.cn/wx/tempSelfSign?controllerId=1000012%247%240%240 -->
+<html lang="zh-ch" style="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>平安成电智慧通行</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .small_icon {
+            height: 15px;
+            width: 15px;
+        }
+
+        .log_img {
+            height: 50px;
+            width: auto;
+
+        }
+
+        .log_item {
+            margin-top: 20px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .main_content {
+            padding-top: 48px;
+        }
+
+        .header {
+            padding: 16px;
+            margin-bottom: 16px
+        }
+
+        .prompt_content {
+            font-weight: bold;
+            color: green;
+            font-size: 24px;
+            width: 100%;
+        }
+
+        .item {
+            padding-left: 8px;
+            padding-right: 8px;
+            
+        }
+
+        .inform_content {
+            color: #000000DE;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .inform_true {
+            color: #000000DE;
+            text-align: right
+        }
+
+        .qucode {
+            text-decoration: none;
+            color: white;
+            background-color: #02c3a4;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 3px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .qucode_item {
+            text-align: center;
+            height: 37px;
+            padding-top: 8px;
+        }
+
+        td {
+            height: 48px;
+        }
+
+        tr {
+            height: 48px;
+        }
+
+        #time {
+            color:#11B894;
+            font-weight: bold;
+            height: 37px;
+            width: 180px;
+            position: relative;
+        }
+
+        #time1 {
+            padding-top: 10px;
+            height: 20px;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        #time2 {
+            height: 20px;
+            padding-top: 10px;
+            position: absolute;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_content" id="main_content">
+        <div class="header" , id="header">
+            <span class="prompt_content">研究生用户，进校登记成功!</span>
+        </div>
+        <div class="v-divider" style="padding-top: 8px;" >
+            <hr style="border-color: rgba(0,0,0,.12); border-width: thin 0 0 0">
+        </div>
+        
+        <div class="item">
+            
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <div>
+                            <img src="./resources/yonghu.3c08ded6.png" class="small_icon">
+                            <text class="inform_content">用户姓名</text>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <h2 class="inform_true">张勇</h2>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <img src="./resources/user-group-fill.02d9192d.png" class="small_icon">
+                            <span class="inform_content">登记类型</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <h2 class="inform_true">研究生（硕士）</h2>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <img src="./resources/miaobiao.9497b743.png" class="small_icon">
+                            <span class="inform_content">登记时间</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="time" style="float: right;">
+                            <span style="left: -86px;" id="time1">2020-12-20 18:49:59</span>
+                            <span style="left: 114px;" id="time2">2020-12-20 18:49:59</span>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="qucode_item">
+            <span style="height: 37px;">
+                <a class="qucode"
+                    href="https://szl0834.github.io/PingAnChengDian/%E4%B8%AA%E4%BA%BA%E4%BA%8C%E7%BB%B4%E7%A0%81.html">前往个人二维码</a>
+            </span>
+        </div>
+        <div class="log_item">
+            <img class="log_img" src="./resources/bwc_wechat.d6141ed0.png">
+        </div>
+    </div>
+
+
+    </div>
+</body>
+<script type="text/javascript">
+    function getTime() {
+        var myDate = new Date();
+        var myYear = myDate.getFullYear();
+        var myMonth = myDate.getMonth() + 1;
+        var myDay = myDate.getDate();
+        var myHours = myDate.getHours();
+        var myMinutes = myDate.getMinutes();
+        var mySeconds = myDate.getSeconds();
+        var time1 = document.getElementById("time1");
+        var time2 = document.getElementById("time2");
+        time1.innerHTML = myYear + "-" + myMonth + "-" + myDay + " " + myHours + ":" + myMinutes + ":" + mySeconds;
+        time2.innerHTML = myYear + "-" + myMonth + "-" + myDay + " " + myHours + ":" + myMinutes + ":" + mySeconds;
+    }
+
+    function doMove() {
+        var time1 = document.getElementById("time1");
+        var time2 = document.getElementById("time2");
+        var left1 = parseInt(time1.style.left) - 1;
+        if (left1 < -200) { left1 = 0; }
+        var left2 = parseInt(time2.style.left) - 1;
+        if (left2 < 0) { left2 = 200; }
+        time1.style.left = left1 + "px";
+        time2.style.left = left2 + "px";
+        window.setTimeout("doMove()", 15);
+    }
+    getTime();
+    doMove();
+</script>
+
+</html>
